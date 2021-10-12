@@ -13,17 +13,19 @@
 {% if filename %}
 <div style="margin: 10px auto;">
     <video autoplay="autoplay" controls="controls" preload="preload">
-			<source src="{{ url_for('display_video', filename=filename) }}" type="video/mp4"></source>
+			<source src="{{ url_for('download_vid', filename=filename) }}" type="video/mp4"></source>
 		</video>
 </div>
 {% endif %}
-<form method="post" action="/download_vid" enctype="multipart/form-data">
+<form method="GET" action="/download_vid" enctype="multipart/form-data">
     <dl>
         <p>
             Link: <input type="file" name=" download_path " autocomplete="off" required>
         </p>
     </dl>
     <p>
-        <input type="submit" value="Download">
+        <input type="submit" value="Click to Download">
     </p>
 </form>
+
+<a href="/">Home</a>
